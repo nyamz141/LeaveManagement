@@ -1,4 +1,7 @@
-﻿1. Create new request Endpoint. 
+﻿Project running as a docker container
+
+localhost:9000/requests/create
+1. Create new request Endpoint. 
 {
   "employeeName":"Name Lastname",
   "employeeId":"1234567890",
@@ -6,6 +9,7 @@
   "daysRequested":"10"
 }
 
+localhost:9000/requests/update
 2. Update existing request (Example requestId)
   (a) Use any request Id from (1.) or Create a new request then copy returned id
 
@@ -15,11 +19,13 @@
     "daysRequested":"15"
   }
 
+localhost:9000/requests/retrieve
 3. To retrive all leave requests. just use the chosen employee id when creating a request
   {
     "employeeId":"1234567890"
   }
 
+localhost:9000/requests/Delete (with capital D -- too lazy to fix it as its inconsequential)
 4. To delete a request simply pass chose id to endpoint. retrieving all requests will omit deleted request (Example requestId)
   {
     "requestId":"9986a302-ae8d-4058-8c70-a887e5592c0e"
