@@ -1,0 +1,16 @@
+
+.employees-parent-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.employee-button-style{
+    width: 100%;
+    height: 50px;
+}
+
+.employee-id-entry{
+    height: 50px;
+}

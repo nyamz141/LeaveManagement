@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  leaverequests:
+    image: ${DOCKER_REGISTRY-}leaverequests
+    build:
+      context: .
+      dockerfile: LeaveRequests/Dockerfile

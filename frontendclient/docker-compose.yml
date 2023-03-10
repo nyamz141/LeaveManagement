@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  client:
+    container_name: frontend
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5600:80"

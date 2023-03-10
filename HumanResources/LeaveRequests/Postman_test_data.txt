@@ -1,0 +1,26 @@
+﻿1. Create new request Endpoint. 
+{
+  "employeeName":"Name Lastname",
+  "employeeId":"1234567890",
+  "leaveReason":"I want to go bird watching",
+  "daysRequested":"10"
+}
+
+2. Update existing request (Example requestId)
+  (a) Use any request Id from (1.) or Create a new request then copy returned id
+
+  {
+    "requestId":"b9e65c53-129c-447c-99a5-9c2d44331a73",
+    "leaveReason": "Swimming in a river",
+    "daysRequested":"15"
+  }
+
+3. To retrive all leave requests. just use the chosen employee id when creating a request
+  {
+    "employeeId":"1234567890"
+  }
+
+4. To delete a request simply pass chose id to endpoint. retrieving all requests will omit deleted request (Example requestId)
+  {
+    "requestId":"9986a302-ae8d-4058-8c70-a887e5592c0e"
+  }
