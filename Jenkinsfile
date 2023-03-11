@@ -2,7 +2,7 @@ pipeline{
     agent any 
     tools{
         nodejs "Node"
-        dotnet "dotnet_sdk"
+        dotnetsdk "dotnet_sdk"
     }
     stages{
         stage("check into backend folder"){
