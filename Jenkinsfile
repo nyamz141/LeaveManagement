@@ -14,7 +14,9 @@ pipeline{
         }
         stage("run docker build"){
             steps{
-                sh 'docker-compose up --build'
+                dir('LeaveRequests'){
+                    sh 'docker build -t munya141/leave-request:latest'
+                }
             }
         }
         stage("check into client folder"){
