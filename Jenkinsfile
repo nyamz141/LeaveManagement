@@ -6,17 +6,17 @@ pipeline{
     }
     stages{
         stage("check into backend folder"){
-            step{
+            steps{
                 sh 'cd HumanResources'
             }
         }
         stage("run docker compose"){
-            step{
+            steps{
                 sh 'docker-compose up --build'
             }
         }
         stage("check into client folder"){
-            step{
+            steps{
                 sh 'cd ../frontendclient'
             }
         }
