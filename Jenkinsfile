@@ -4,12 +4,11 @@ pipeline{
         nodejs "Node"
     }
     stages{
-        stage("check into backend folder and builder docker"){
+        stage("check into frontend folder"){
             steps{
-                dir('HumanResources'){
-                    dir('LeaveRequests'){
-                        sh 'docker build -t munya141/leave-request:latest .'
-                    }
+                dir('frontendclient'){
+                    sh 'npm install'
+                    sh 'docker-compose up --build'
                 }
             }
         }
