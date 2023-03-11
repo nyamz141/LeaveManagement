@@ -8,7 +8,7 @@ pipeline{
         stage("check into backend folder"){
             steps{
                 dir('HumanResources'){
-                   echo sh 'pwd'
+                   sh 'echo pwd'
                 }
             }
         }
