@@ -15,7 +15,7 @@ pipeline{
         stage("run docker build"){
             steps{
                 dir('LeaveRequests'){
-                    sh 'docker build -t munya141/leave-request:latest'
+                    sh 'docker build -t munya141/leave-request:latest .'
                 }
             }
         }
