@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("check into backend folder"){
             steps{
-                sh 'cd HumanResources'
+                sh 'cd ./HumanResources'
             }
         }
         stage("run docker compose"){
