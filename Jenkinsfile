@@ -8,11 +8,12 @@ pipeline{
         stage("check into backend folder"){
             steps{
                 sh 'cd ./HumanResources'
+                sh 'cd ./LeaveRequests'
             }
         }
-        stage("run docker compose"){
+        stage("run docker build"){
             steps{
-                sh 'docker-compose up --build'
+                sh 'docker build -t munya141/leave-requests-backend:latest'
             }
         }
         stage("check into client folder"){
