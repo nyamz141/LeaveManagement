@@ -7,13 +7,14 @@ pipeline{
     stages{
         stage("check into backend folder"){
             steps{
-                sh 'cd ./HumanResources'
-                sh 'cd ./LeaveRequests'
+                dir('HumanResources'){
+                   echo sh 'pwd'
+                }
             }
         }
         stage("run docker build"){
             steps{
-                sh 'docker build -t munya141/leave-requests-backend:latest'
+                sh 'docker-compose up --build'
             }
         }
         stage("check into client folder"){
