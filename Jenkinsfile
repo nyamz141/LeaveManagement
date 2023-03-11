@@ -13,10 +13,5 @@ pipeline{
                 }
             }
         }
-        stage("check into client folder"){
-            steps{
-                
-            }
-        }
     }
 }
