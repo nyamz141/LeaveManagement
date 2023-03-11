@@ -4,23 +4,18 @@ pipeline{
         nodejs "Node"
     }
     stages{
-        stage("check into backend folder"){
+        stage("check into backend folder and builder docker"){
             steps{
                 dir('HumanResources'){
-                   sh 'echo pwd'
-                }
-            }
-        }
-        stage("run docker build"){
-            steps{
-                dir('LeaveRequests'){
-                    sh 'docker build -t munya141/leave-request:latest .'
+                    dir('LeaveRequests'){
+                        sh 'docker build -t munya141/leave-request:latest .'
+                    }
                 }
             }
         }
         stage("check into client folder"){
             steps{
-                sh 'cd ../frontendclient'
+                
             }
         }
     }
