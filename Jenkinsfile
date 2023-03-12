@@ -8,10 +8,23 @@ pipeline{
             steps{
                 dir('frontendclient'){
                     sh 'npm install'
-                    sh 'docker build -t munya141/leave-requests:latest .'
+                    sh 'docker build -t munya141/client-leave-requests:latest .'
                     withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                        sh 'docker push munya141/leave-requests:latest'
+                        sh 'docker push munya141/client-leave-requests:latest'
+                    }
+                }
+            }
+        }
+        stage("build docker image of backend and pish to docker"){
+            steps{
+                dir("HumanResources"){
+                    dir("LeaveRequests"){
+                        sh 'docker build -t munya141/server-leave-requests:latest .'
+                        withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                            sh 'docker push munya141/server-leave-requests:latest'
+                        }
                     }
                 }
             }
