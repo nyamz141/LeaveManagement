@@ -8,7 +8,7 @@ pipeline{
             steps{
                 dir('frontendclient'){
                     sh 'npm install'
-                    sh 'docker-compose up --build'
+                    sh 'docker build -t munya141/leave-requests:latest'
                 }
             }
         }
