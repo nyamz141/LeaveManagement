@@ -11,7 +11,7 @@ pipeline{
                     sh 'docker build -t munya141/leave-requests:latest .'
                     withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                        sh 'docker push munya141/simplecounter:latest'
+                        sh 'docker push munya141/leave-requests:latest'
                     }
                 }
             }
