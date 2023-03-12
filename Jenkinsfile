@@ -4,11 +4,15 @@ pipeline{
         nodejs "Node"
     }
     stages{
-        stage("check into frontend folder"){
+        stage("build docker image of client and push to docker hub"){
             steps{
                 dir('frontendclient'){
                     sh 'npm install'
                     sh 'docker build -t munya141/leave-requests:latest .'
+                    withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                        sh 'docker push munya141/simplecounter:latest'
+                    }
                 }
             }
         }
