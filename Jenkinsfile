@@ -19,11 +19,11 @@ pipeline{
         stage("build docker image of backend and pish to docker"){
             steps{
                 dir("HumanResources"){
-                        sh 'docker build -f LeaveRequests/Dockerfile -t munya141/server-leave-requests:latest .'
-                        withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                            sh 'docker push munya141/server-leave-requests:latest'
-                        }
+                    sh 'docker-compose up --build'
+                    withCredentials([usernamePassword(credentialsId: 'DockerHubAuth', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                        sh 'docker push munya141/server-leave-requests:latest'
+                    }
                 }
             }
         }
