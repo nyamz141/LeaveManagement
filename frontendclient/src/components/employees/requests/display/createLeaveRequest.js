@@ -55,7 +55,7 @@ const CreateRequestComponent = ({receivedEmployeeId}) => {
                 "leaveReason":`${leaveReason}`,
                 "daysRequested":`${daysRequested}`
             }
-            axios.post("http://localhost:9000/requests/create",payload)
+            axios.post("http://172.105.181.131:9000/requests/create",payload)
             .then(response => {
                 setResponseData([...responseData,response.data.result])
                 setDisplayResponse("1");

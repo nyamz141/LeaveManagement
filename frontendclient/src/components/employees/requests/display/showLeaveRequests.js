@@ -17,7 +17,7 @@ const ShowRequestComponent = ({employeeId}) => {
             const payload =   {
                 "employeeId":`${employeeId}`
             }
-            axios.post("http://localhost:9000/requests/retrieve",payload)
+            axios.post("http://172.105.181.131:9000/requests/retrieve",payload)
             .then(response => {
                 setEmployeeRequests(response.data)
             });

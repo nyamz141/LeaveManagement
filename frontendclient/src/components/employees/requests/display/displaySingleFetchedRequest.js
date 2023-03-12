@@ -14,7 +14,7 @@ const FetchedRequest = ({thisRequest,action,updating}) => {
         const payload =   {
             "requestId":`${thisRequest.id}`
         }
-        axios.post("http://localhost:9000/requests/Delete",payload)
+        axios.post("http://172.105.181.131:9000/requests/Delete",payload)
         .then(response => {
             console.log(response.data)
             action(response.data)
@@ -39,7 +39,7 @@ const FetchedRequest = ({thisRequest,action,updating}) => {
             "leaveReason": `${updateReason}`,
             "daysRequested":`${updateDaysRequested}`
         }
-        axios.post("http://localhost:9000/requests/update",payload)
+        axios.post("http://172.105.181.131:9000/requests/update",payload)
         .then(response => {
             console.log(response.data.result.id)
             updating(response.data.result.id)
